@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LurkForWork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css" />
+</head>
+<body>
+    <!-- This is an example app structure, you can modify this as much as you choose --> 
+    <main role="main">
+        <!-- app goes here --> 
+         
+
+         <div id="page-log">
+            <h2>LOGIN</h2>
+            E-mail:<input id="E-mail-l" type="text" placeholder="Enter your email"> <br>
+            Password:<input id="Password-l" type="password" placeholder="Enter your password"><br>
+            <button id="login-sbtn">Login</button>
+            <button id="register-fbtn">do a registeration</button>
+         </div>
+
+
+         <div id="page-reg">
+            <h2>REGISTER</h2>
+            <button id="back-btn">Back</button><br>
+            E-mail:<input id="E-mail-r" type="text" placeholder="Enter your email"> <br>
+            Name:<input id="Name" type="text" placeholder="Enter your name"> <br>
+            Password:<input id="Password-r" type="password" placeholder="Enter your password"><br>
+            Confirm Password:<input id="Password-r2" type="password" placeholder="Enter your password again"><br>
+            <button id="register-sbtn">register</button>
+         </div>
+
+
+         <div id="page-dashboard">
+            <h2>DASHBOARD</h2>
+            <div id="profile-link-container">
+                <a id="profile-link">
+                    <img src="/path/to/profile-icon.png" alt="Profile" class="profile-icon"> My Profile
+                </a>
+            </div>
+            <button id="create-thread-btn">Create Thread</button>
+            <div id="thread-list"></div>
+            <button id="load-more-btn">More</button><br>
+            <button id="logout-btn">Log out</button>
+        </div>
+    
+
+        <!-- Create thread page -->
+        <div id="create-thread">
+            <h2>Create a New Thread</h2>
+            <form id="create-thread-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" required></textarea><br>
+                <label for="private">Private:</label>
+                <input type="checkbox" id="private" name="private"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    
+
+        <!-- Individual thread page -->
+        <div id="thread-screen">
+            <div id="main-content">
+                <button id="back-to-dashboard-btn">Back to Dashboard</button>
+
+                
+                <button id="watch-btn"></button>
+                <h2>Title:</h2>
+                <h3 id="thread-title"></h3>
+        
+                <h2>Content:</h2>
+                <p id="thread-content"></p>
+        
+                <p id="thread-likes">Likes: <span id="likes-count"></span></p>
+
+                <button id="edit-btn" style="display: none;">Edit</button> <button id="delete-btn" style="display: none;">Delete</button>
+
+                <button id="like-btn"></button>
+            </div>
+
+            <div id="comment-section">
+                <h2>Comments</h2>
+                <ul class="common-list" id="comment-list">
+                    <!-- Comments will be dynamically populated here -->
+                </ul>
+                <div id="comment-input-box">
+                    <textarea id="new-comment" placeholder="Write a comment..."></textarea>
+                    <button id="post-comment-btn">Comment</button>
+                </div>
+            </div>
+            
+            <!-- Reply Modal -->
+            <div id="reply-modal" style="display:none;">
+                <textarea id="reply-comment" placeholder="Write a reply..."></textarea>
+                <button id="post-reply-btn">Reply</button>
+            </div>
+
+            <div id="edit-modal" style="display:none;">
+                <textarea id="edit-comment" placeholder="Edit your comment..."></textarea>
+                <button id="save-edit-btn">Comment</button>
+            </div>
+            
+            
+        </div>
+    
+
+
+         <div id="page-editform" style="display:none;">
+            Title: <input type="text" id="edit-title"> <br>
+            Content: <textarea id="edit-content"></textarea> <br>
+            <label>
+                Private: <input type="checkbox" id="edit-private">
+            </label> <br>
+            <label>
+                Locked: <input type="checkbox" id="edit-locked">
+            </label> <br>
+            <button id="save-thread-btn">Save</button>
+            <button id="cancel-edit-btn">Cancel</button>
+        </div>
+        
+        <div id="profile-container">
+            <h2>User Profile</h2>
+            <div>
+                <label>Profile Picture:</label>
+                <img id="profile-avatar" src="default-avatar.png" alt="Profile Avatar" class="avatar">
+
+            </div>
+            <div>
+                <label>Username:</label>
+                <span id="profile-username"></span>
+            </div>
+            <div>
+                <label>Email:</label>
+                <span id="profile-email"></span>
+            </div>
+            <button id="edit-profile-btn">Edit</button>
+            <button id="edit-back-btn">Back</button>
+        
+            <h3>User Posts:</h3>
+            <div id="user-posts"></div> 
+        </div>
+        
+        <div id="edit-profile-modal" style="display:none;">
+            <h3>Edit Profile</h3>
+            <form id="edit-profile-form">
+                <label>Email:</label>
+                <input type="email" id="edit-email"><br>
+                
+                <label>Password:</label>
+                <input type="password" id="edit-password"><br>
+                
+                <label>Name:</label>
+                <input type="text" id="edit-name" ><br>
+                
+                <label>Profile Image:</label>
+                <input type="file" id="edit-image" accept="image/*"><br>
+                
+                <button type="submit">Update Profile</button>
+                <button id="cancel-edit-btnc">Cancel</button>
+            </form>
+        </div>
+    </main>
+    
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
