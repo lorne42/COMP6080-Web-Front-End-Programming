@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Funform</title>
+  </head>
+  <body>
+    <div class="formContainer">
+      <h1>FunForm</h1>
+      <form>
+        <div class="inputContainer">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" />
+        </div>
+        <div class="inputContainer">
+          <label for="dob">Date of Birth</label>
+          <input type="text" id="dob" name="dob" />
+        </div>
+        <div class="inputContainer">
+          <label for="graduationDate">Graduation Date</label>
+          <input type="date" id="graduationDate" name="graduationDate" />
+        </div>
+        <div class="favCoursesContainer">
+          <label>Favourite Courses</label>
+          <div class="checklistContainer">
+            <label>
+              <input type="checkbox" id="selectAll" name="selectAll" />
+              Select All
+            </label>
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" id="comp6080" name="COMP6080" />
+                  COMP6080
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" id="comp2521" name="COMP2521" />
+                  COMP2521
+                </label>
+              </li>
+              <li>
+                <label for="comp1511">
+                  <input type="checkbox" id="comp1511" name="COMP1511" />
+                  COMP1511
+                </label>
+              </li>
+              <li>
+                <label>
+                  Other
+                  <input type="text" id="other" name="other" />
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button type="button" id="resetButton">Reset</button>
+        <textarea id="outputText"></textarea>
+      </form>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

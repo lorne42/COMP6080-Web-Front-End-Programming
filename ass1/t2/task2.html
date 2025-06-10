@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+body {
+    font-family: arial;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Title bar style */
+.title-bar {
+    background-color: #f0f1f3;
+    border-bottom: 1px solid #dfdfe0;
+    width: 975px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.title-bar h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    position: relative;
+    margin: 0;
+    padding-left: 25px;
+}
+
+.title-bar h2::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #007bff;
+}
+
+/* Content section style */
+.content-section {
+    background-color: #fff;
+    width: 975px;
+    height: 555px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h3 {
+    color: #007bff;
+    padding-left: 60px;
+    padding-top: 20px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.underline {
+    width: 860px;
+    height: 4px;
+    left: 60px;
+    background-color: #e0e0e0;
+    position: relative;
+}
+
+.underline::before {
+    content: '';
+    position: absolute;
+    width: 18%;
+    height: 4px;
+    background-color: #007bff;
+}
+
+.content-section p {
+    font-size: 15px;
+    color: #333;
+    margin-top: 10px;
+    padding-left: 80px;
+    padding-top: 25px;
+    padding-right: 80px;
+}
+
+.dropdown-fake {
+    border: 1px solid #ccc;
+    width: 165px;
+    height: 45px;
+    display: flex;
+    position: relative; /* Positions the pseudo-element relative to this parent */
+    padding-left: 10px; /* Leaves space for the text */
+    justify-content: left;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 45px;
+    text-align: left;
+    align-items: center; /* Ensures text is vertically centered */
+}
+
+.dropdown-fake::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="16" height="16"><polygon points="0,0 10,5 0,10" fill="black"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute; /* Absolutely positions the icon */
+    right: 10px; /* Places the icon to the right of the dropdown */
+    top: 50%; /* Vertically centers the icon */
+    transform: translateY(-50%) rotate(90deg); /* Vertically centers and rotates the icon */
+}
+
+.dropdown-fake::before {
+    content: '';
+    width: 1px; /* Width of the divider */
+    height: 100%; /* Divider height */
+    background-color: #ddd; /* Divider color */
+    position: absolute;
+    right: 30px; /* Space between divider and icon */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centers the divider */
+}
+
+.dropdown-fake-text {
+    margin-right: 15px;
+    text-align: left;
+}
+
+table {
+    width: 820px;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+td {
+    text-align: left;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+/* Sets the background color to white for cells containing .dropdown-fake */
+td:has(.dropdown-fake) {
+    background-color: #fff;
+}
+
+.search-button {
+    display: inline-block;
+    width: 400px;
+    height: 60px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border: 8px solid #ddd;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    line-height: 60px;
+    transform: translateY(30px);
+    position: relative;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.search-button::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="16" height="16"><polygon points="0,0 10,5 0,10" fill="white"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 150px; /* Distance of icon from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centers the icon */
+}
+
+/* Centers the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Deals and Passes</title>
+</head>
+<body>
+    <div class="title-bar">
+        <h2>Ticket Deals and Passes</h2>
+    </div>
+    
+    <div class="content-section">
+        <h3>UNSW CSE Area Tourist Pass Mini</h3>
+        <div class="underline"></div>
+        <p>Please select the number of users, the date of use, and the period of use, and then click "Search."
+            Note that reservations for up to 6 users (including adults and children) only can be submitted at one time.
+        </p>
+        <table>
+            <tr>
+                <td style="text-align: center;">Passengers (Adults)</td>
+                <td>
+                    <div class="dropdown-fake">
+                        <span class="dropdown-fake-text">Please Select</span>
+                    </div>
+                </td>
+                <td style="text-align: center;">Passengers (Children)</td>
+                <td>
+                    <div class="dropdown-fake">
+                        <span class="dropdown-fake-text">Please Select</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Select Date (AEDT)</td>
+                <td colspan="3">
+                    <div class="dropdown-fake" style=" display: inline-block;">
+                        <span class="dropdown-fake-text">2024</span>
+                    </div>
+                    <div class="dropdown-fake" style=" display: inline-block; margin-left: 10px;">
+                        <span class="dropdown-fake-text">Aug.</span>
+                    </div>
+                    <div class="dropdown-fake" style=" display: inline-block; margin-left: 10px;">
+                        <span class="dropdown-fake-text">6th</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; height: 50px;">Validity period</td>
+                <td colspan="3" style="background-color: #fff; height: 50px;">
+                    <div>
+                        <span style="padding-left: 10px;">3 days</span>
+                    </div>
+                </td>
+            </tr>            
+        </table>
+        <div class="button-container">
+            <div class="search-button">Search</div>
+        </div>
+    </div>
+    
+</body>
+</html>

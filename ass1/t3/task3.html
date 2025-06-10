@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page</title>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('./assets/OpenSans-Regular.ttf') format('truetype');
+            font-weight: 200;
+        }
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans';
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            background-color: #f1f2f3;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 1552px;
+            min-height: 917px;
+            padding: 20px;
+            position: relative;
+        }
+        .help-box {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) rotate(270deg); /* Vertically rotate the text */
+            background-color: #219c48; /* Background color, green */
+            color: white; /* Text color, white */
+            padding: 10px 20px; /* Padding */
+            margin-right: -40px;
+            border-radius: 5px; /* Border radius */
+            font-size: 14px; /* Font size */
+            font-weight: bold; /* Bold text */
+            box-shadow: 0 10px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 555px 370px;
+            gap: 20px;
+        }
+
+        .login-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 555px;
+            height: 540px;
+            text-align: center;
+        }
+
+        .login-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #007E3A;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .forgot-link {
+            display: block;
+            margin-top: 30px;
+            color: #007E3A;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            font-size: 15px;
+            color: #000000;
+            margin: 20px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 4px;
+        }
+
+        .help-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: white;
+            color: #007E3A;
+            border: 2px solid #007E3A;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .reward-section {
+            background-color: #17983f;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 370px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .reward-section h2 {
+            margin-bottom: 10px;
+            margin-top: -300px;
+            margin-left: -55px;
+        }
+
+        .svg-image {
+            width: 500px;
+            height: 500px;
+            margin-top: -200px;
+            margin-left: 50px;
+        }
+
+        .reward-section p {
+            text-align: left;
+            width: 100%;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .button-placeholder {
+            width: 90%;
+            padding: 12px;
+            background-color: #17983f;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .button-placeholder2 {
+            width: 90%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #17983f;
+            border: 2px solid #17983f;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 40px;
+            margin-left: 20px;
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 465px 465px;
+            gap: 20px;
+        }
+
+        .credit-pass, .quick-payment {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 465px;
+            height: 255px;
+        }
+
+        .credit-pass h3, .quick-payment h3 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        .credit-pass p, .quick-payment p {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .title-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .title-with-icon img {
+            margin-left: 20px;
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .reward-section {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .svg-image {
+                width: 300px;
+                height: 300px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-section, .reward-section, .credit-pass, .quick-payment {
+                width: 100%;
+            }
+
+            .login-section {
+                height: auto;
+            }
+
+            .bottom-section {
+                grid-template-columns: 1fr;
+            }
+
+            .reward-section h2 {
+                margin-top: 0;
+                margin-left: 0;
+            }
+
+            .svg-image {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 10px;
+            }
+
+            .login-section {
+                padding: 20px;
+            }
+
+            .reward-section {
+                padding: 20px;
+            }
+
+            .svg-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .login-section h2 {
+                font-size: 20px;
+            }
+
+            .input-field, .login-btn, .help-btn {
+                font-size: 14px;
+            }
+
+            .reward-section h2 {
+                font-size: 18px;
+            }
+
+            .svg-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .bottom-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 291px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 10px;
+                width: 100%;
+                max-width: 291px;
+                min-height: 1068px;
+            }
+
+            .main-content {
+                display: block; /* Convert to block layout, single column display */
+            }
+
+            .login-section, .reward-section, .credit-pass, .quick-payment {
+                width: 100%;
+                padding: 15px; /* Reduce padding to fit narrow screens */
+            }
+
+            .login-section h2 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .input-field, .login-btn, .help-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .svg-image {
+                width: 150px;  /* Further reduce SVG image size */
+                height: 150px;
+            }
+
+            .reward-section h2 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .button-placeholder {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+
+            .bottom-section {
+                display: block;
+            }
+
+            .credit-pass, .quick-payment {
+                margin-top: 10px;
+            }
+
+            .credit-pass h3, .quick-payment h3 {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .credit-pass p, .quick-payment p {
+                font-size: 14px;
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .button-placeholder2 {
+                width: 90%;
+                padding: 10px;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            /* Reduce text and button size */
+            .button-placeholder2 b {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="help-box">Need help?</div>
+        <!-- Main Content Section -->
+        <main class="main-content">
+            
+            <section class="login-section">
+                <h2><b>Log in</b></h2>
+                <input type="text" class="input-field" placeholder="Username *">
+                <button class="login-btn">Next</button>
+                <a href="#" class="forgot-link">Forgot my username</a>
+                <a href="#" class="forgot-link">Forgot my password</a>
+
+                <div class="divider">Need an account or pass?</div>
+
+                <button class="help-btn"><b>Help me choose</b></button>
+            </section>
+            
+            <!-- Reward Section with SVG -->
+            <section class="reward-section">
+                <!-- SVG Image Included -->
+                <img src="./assets/img1.svg" alt="Reward Image" class="svg-image">
+                <h2>COMP6080 Rewards</h2>
+                <p>Save on GitHub Pro, Nitro, and more</p>
+                <div class="button-placeholder">View rewards</div>
+            </section>
+        </main>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <div class="credit-pass">
+                <div class="title-with-icon">
+                    <img src="./assets/icon1.svg" alt="Credit Pass Icon">
+                    <h3>Credit Pass Customer?</h3>
+                </div>
+                <p>Need to check the remaining credit on your credit pass?</p>
+                <div class="button-placeholder2"><b>Check Balance</b></div>
+            </div>
+            <div class="quick-payment">
+                <div class="title-with-icon">
+                    <img src="./assets/icon2.svg" alt="Quick Payment Icon">
+                    <h3>Quick Payment</h3>
+                </div>
+                <p>Having trouble logging in and want to make a quick payment on your account?</p>
+                <div class="button-placeholder2"><b>Make Payment</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
